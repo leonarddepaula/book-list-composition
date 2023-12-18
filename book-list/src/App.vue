@@ -1,52 +1,72 @@
 <script setup>
-import { reactive, ref } from 'vue'
-// ref para primitivos
-let count = ref(0)
+import Books from './components/Books.vue'
 
-// reactive para objetos
-let courses = reactive([
+  let books = [
   {
-    title: 'javascript'
+    id: 1,
+    title: "History of Europe",
+    cover:
+      "https://printpress.cmsmasters.net/default/wp-content/uploads/sites/11/2019/05/printpress-product-6-540x861.jpg",
+    isRead: true,
+    isbn: "0-395-07157-8",
+    author: "Daniel Trejo",
   },
   {
-    title: 'React'
+    id: 2,
+    title: "Penguin Classics",
+    cover:
+      "https://printpress.cmsmasters.net/default/wp-content/uploads/sites/11/2019/05/printpress-product-2-540x861.jpg",
+    isRead: false,
+    isbn: "0-395-07157-8",
+    author: "Daniel Trejo, Jon Snow",
   },
   {
-    title: 'Vue'
-  }
-])
-
-let newCourse = { }
-
-function increment(){
-  count.value ++
-}
-function addCourse(){
-  courses.push(newCourse)
-  newCourse = { }
-}
+    id: 3,
+    title: "Becoming",
+    cover:
+      "https://printpress.cmsmasters.net/default/wp-content/uploads/sites/11/2019/05/printpress-product-7-540x861.jpg",
+    isRead: false,
+    isbn: "0-395-07157-8",
+    author: "Daniel Trejo",
+  },
+  {
+    id: 4,
+    title: "Sonnets",
+    cover:
+      "https://printpress.cmsmasters.net/default/wp-content/uploads/sites/11/2019/05/printpress-product-5-540x861.jpg",
+    isRead: false,
+    isbn: "0-395-07157-8",
+    author: "Daniel Trejo",
+  },
+]
+  
 </script>
 
 <template>
-  <div>
-    <h1>{{ count }}</h1>
-    <button @click="increment">Incrementar</button><br>
-    
-  </div>
-  <div>
-    <h1>Lista de cursos</h1>
-      <ul>
-        <li v-for="(course, index) in courses" :key="index">
-          {{ course.title }}
-        </li>
-      </ul>
 
-      <input v-model="newCourse.title" type="text"><br> <br>
-      <button @click="addCourse">Adicionar</button> <br> 
+  <div class="container">
+    <h1>📖 Meus Livros</h1>
+    <div class="header-btns">
+      <button
+        class="btn"
+        
+      >
+        Adicionar Livro +
+      </button>
+    </div>
+ 
+    <div class="books-container">
+      <Books :books="books" />
       
+    </div>
   </div>
-  
 </template>
 
-<style scoped>
-</style>
+
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+      integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
